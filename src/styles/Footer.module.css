@@ -1,0 +1,65 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 24px;
+}
+
+.logo {
+  width: 61px;
+}
+
+.logo a {
+  height: 100%;
+}
+
+.logo_icon {
+  width: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  line-height: 0.85;
+  font-weight: 700;
+
+}
+
+.logo_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo_text span:first-child {
+  color: rgb(46, 37, 214);
+}
+
+.logo_text span:last-child {
+  color: rgb(37, 214, 134);
+}
+
+.rights {
+  color: var(--dark-sea);
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.rights a {
+  color: var(--violet);
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+}
+
+.socials svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--dark-sea);
+}
+
+.socials svg:hover {
+  fill: var(--violet);
+}
