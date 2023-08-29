@@ -12,7 +12,7 @@ export const Products = ({ title, amount, style = {}, products = [] }) => {
         {list.map(({ id, images, title, category: { name: cat }, price }) => (
           <Link
             key={id}
-            to={ROUTES.PRODUCT + `${id}`}
+            to={ROUTES.PRODUCT + `/${id}`}
             className={styles.product}
           >
             <div
@@ -30,7 +30,7 @@ export const Products = ({ title, amount, style = {}, products = [] }) => {
                   </div>
                 </div>
                 <div className={styles.purchases}>
-                  {Math.floor(Math.random() * 20 + 1)}purchased
+                  {Math.floor(Math.random() * 20 + 1)} purchased
                 </div>
               </div>
             </div>

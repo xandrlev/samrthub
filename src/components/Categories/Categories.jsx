@@ -13,7 +13,7 @@ export const Categories = ({ title, amount, products = [] }) => {
         {list.map(({ id, image, name }) => (
           <Link
             key={id}
-            to={ROUTES.CATEGORY + `/${id}`}
+            to={ROUTES.CATEGORY + `/${name}`}
             className={styles.item}
           >
             <div

@@ -18,7 +18,7 @@ export const Sidebar = () => {
                 className={({ isActive }) =>
                   `${styles.link} ${isActive ? styles.active : ""}`
                 }
-                to={ROUTES.CATEGORY + `/${id}`}
+                to={ROUTES.CATEGORY + `/${name}`}
               >
                 {name}
               </NavLink>

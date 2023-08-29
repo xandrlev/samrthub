@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Poster } from "../Poster/Poster";
 import { Products } from "../Products/Products";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Categories } from "../Categories/Categories";
+import { Banner } from "../Banner";
+import { filterByPrice } from "../../redux/products/productsSlice";
 
 export const Home = () => {
-  const { products, categories } = useSelector((state) => state);
+  const {
+    products: { filtered, list },
+    categories,
+  } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (list.length) {
+      dispatch(filterByPrice(100));
+    }
+  }, [dispatch, list.length]);
+
+  console.log(list.filtered);
+
   return (
     <>
       <Poster />
-      <Products products={products.list} amount={5} title="Trending" />
+      <Products products={list} amount={5} title="Trending" />
       <Categories products={categories.list} amount={5} title="Categories" />
+      <Banner />
+      <Products products={filtered} amount={5} title="Less then 100$" />
     </>
   );
 };
-  
