@@ -19,8 +19,6 @@ export const Home = () => {
     }
   }, [dispatch, list.length]);
 
-  console.log(list.filtered);
-
   return (
     <>
       <Poster />

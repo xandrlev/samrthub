@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../../styles/Products.module.css";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../utils/routes";
 
 export const Products = ({ title, amount, style = {}, products = [] }) => {
   const list = products.filter((_, index) => index < amount);
@@ -12,7 +11,7 @@ export const Products = ({ title, amount, style = {}, products = [] }) => {
         {list.map(({ id, images, title, category: { name: cat }, price }) => (
           <Link
             key={id}
-            to={ROUTES.PRODUCT + `/${id}`}
+            to={`/products/${id}`}
             className={styles.product}
           >
             <div
