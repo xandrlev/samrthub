@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { UserSignUpForm } from "./UserSignUpForm";
 import { UserLoginForm } from "./UserLoginForm";
-import styles from "../../styles/User.module.css";
 import { toggleForm, toggleFormType } from "../../redux/api/user/userSlice";
+import styles from "../../styles/User.module.css";
 
 export const UserForm = () => {
   const { showForm, formType } = useSelector(({ user }) => user);

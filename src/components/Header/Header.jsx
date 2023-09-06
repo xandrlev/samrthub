@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/Header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../utils/routes";
 import Logo from "../../images/logo.png";
 import Avatar from "../../images/avatar.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../redux/api/user/userSlice";
+import { useGetProductsQuery } from "../../redux/api/apiSlice";
 
 export const Header = () => {
   const [values, setValues] = useState({ name: "Guest", avatar: Avatar });
+  const [searchValue, setSearchValue] = useState("");
   const { currentUser } = useSelector(({ user }) => user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { data, isLoading } = useGetProductsQuery({ title: searchValue });
 
   useEffect(() => {
     if (!currentUser) return;
@@ -20,7 +24,13 @@ export const Header = () => {
   const handleClick = () => {
     if (!currentUser) {
       dispatch(toggleForm(true));
+    } else {
+      navigate(ROUTES.PROFILE);
     }
+  };
+
+  const handleSearch = ({ target: { value } }) => {
+    setSearchValue(value);
   };
 
   return (
@@ -55,11 +65,33 @@ export const Header = () => {
               name=" search "
               placeholder="Search product"
               autoComplete="off"
-              onChange={() => {}}
-              value=""
+              onChange={handleSearch}
+              value={searchValue}
             />
           </div>
-          {false && <div className={styles.box}></div>}
+          {searchValue && (
+            <div className={styles.box}>
+              {isLoading
+                ? "Loading"
+                : !data.length
+                ? "No result"
+                : data.map(({ title, images, id }) => {
+                    return (
+                      <Link key={id}
+                        onClick={() => setSearchValue("")}
+                        className={styles.item}
+                        to={`/products/${id}`}
+                      >
+                        <div
+                          className={styles.image}
+                          style={{ backgroundImage: `url(${images[0]})` }}
+                        />
+                        <div className={styles.title}>{title}</div>
+                      </Link>
+                    );
+                  })}
+            </div>
+          )}
         </form>
         <div className={styles.account}>
           <Link to={ROUTES.HOME} className={styles.favourites}>
