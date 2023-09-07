@@ -65,6 +65,11 @@ export const Category = () => {
   const handleParams = () => {
     setParams({ ...params, offset: params.offset + params.limit });
   };
+  const handleReset = () => {
+    setParams(initialParams);
+    setValues(initialValues);
+    setEnd(false);
+  };
 
   return (
     <section className={styles.wrapper}>
@@ -109,7 +114,7 @@ export const Category = () => {
       ) : !isSuccess || !items.length ? (
         <div className={styles.back}>
           <span className={styles.wrapper}>No result</span>
-          <button>Reset</button>
+          <button onClick={handleReset}>Reset</button>
         </div>
       ) : (
         <Products

@@ -11,7 +11,7 @@ import { useGetProductsQuery } from "../../redux/api/apiSlice";
 export const Header = () => {
   const [values, setValues] = useState({ name: "Guest", avatar: Avatar });
   const [searchValue, setSearchValue] = useState("");
-  const { currentUser } = useSelector(({ user }) => user);
+  const { currentUser, cart } = useSelector(({ user }) => user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data, isLoading } = useGetProductsQuery({ title: searchValue });
@@ -77,7 +77,8 @@ export const Header = () => {
                 ? "No result"
                 : data.map(({ title, images, id }) => {
                     return (
-                      <Link key={id}
+                      <Link
+                        key={id}
                         onClick={() => setSearchValue("")}
                         className={styles.item}
                         to={`/products/${id}`}
@@ -103,7 +104,7 @@ export const Header = () => {
             <svg className={styles["icon-cart"]}>
               <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`} />
             </svg>
-            <span className={styles.count}>55</span>
+            {!!cart.length && <span className={styles.count}>{cart.length}</span>}
           </Link>
         </div>
       </div>
