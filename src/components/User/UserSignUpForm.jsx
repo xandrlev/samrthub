@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "../../styles/User.module.css";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../redux/api/user/userSlice";
+import styles from "../../styles/User.module.css";
 
 export const UserSignUpForm = ({ closeForm, toggleCurrentFormType }) => {
   const initialValues = {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { addProductToCart } from "../../redux/api/user/userSlice";
 import { useDispatch } from "react-redux";
 import { ROUTES } from "../../utils/routes";
 import { Link } from "react-router-dom";
-import { addProductToCart } from "../../redux/api/user/userSlice";
 import styles from "../../styles/Product.module.css";
 
 const sizes = ["XS", "S", "M", "L", "XL"];

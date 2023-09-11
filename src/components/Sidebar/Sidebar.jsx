@@ -1,8 +1,7 @@
 import React from "react";
-import styles from "../../styles/Sidebar.module.css";
 import { NavLink } from "react-router-dom";
-import { ROUTES } from "../../utils/routes";
 import { useSelector } from "react-redux";
+import styles from "../../styles/Sidebar.module.css";
 
 export const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories);

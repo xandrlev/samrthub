@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../../styles/Home.module.css";
 import iphone from "../../images/iphone15.png";
+import styles from "../../styles/Home.module.css";
 
 export const Poster = () => {
   return (

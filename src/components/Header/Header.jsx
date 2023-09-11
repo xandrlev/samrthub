@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/Header.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { ROUTES } from "../../utils/routes";
-import Logo from "../../images/logo.png";
-import Avatar from "../../images/avatar.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../redux/api/user/userSlice";
 import { useGetProductsQuery } from "../../redux/api/apiSlice";
+import { ROUTES } from "../../utils/routes";
+import Avatar from "../../images/avatar.svg";
+import Logo from "../../images/logo.png";
+import styles from "../../styles/Header.module.css";
 
 export const Header = () => {
   const [values, setValues] = useState({ name: "Guest", avatar: Avatar });

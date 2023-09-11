@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetProductQuery } from "../../redux/api/apiSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getRelatedProducts } from "../../redux/products/productsSlice";
 import { ROUTES } from "../../utils/routes";
 import { Product } from "./Product";
 import { Products } from "./Products";
-import { useDispatch, useSelector } from "react-redux";
-import { getRelatedProducts } from "../../redux/products/productsSlice";
 
 export const SingleProduct = () => {
   const { id } = useParams();

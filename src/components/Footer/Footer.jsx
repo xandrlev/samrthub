@@ -1,9 +1,8 @@
 import React from "react";
-import styles from "../../styles/Footer.module.css";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../utils/routes";
-
 import Logo from "../../images/logo.png";
+import styles from "../../styles/Footer.module.css";
 
 export const Footer = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/Profile.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../redux/api/user/userSlice";
+import styles from "../../styles/Profile.module.css";
 
 export const Profile = () => {
   const initialValues = {

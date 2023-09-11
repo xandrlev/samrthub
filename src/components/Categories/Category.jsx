@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetProductsQuery } from "../../redux/api/apiSlice";
-
-import { Products } from "../Products/Products";
-
-import styles from "../../styles/Category.module.css";
 import { useSelector } from "react-redux";
+import { Products } from "../Products/Products";
+import styles from "../../styles/Category.module.css";
 
 export const Category = () => {
   const { id } = useParams();

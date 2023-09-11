@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../styles/Home.module.css";
-import summer from '../images/summer.jpg'
+import summer from '../../images/summer.jpg'
+import styles from "../../styles/Home.module.css";
 
 export const Banner = () => {
   return (

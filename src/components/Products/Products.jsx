@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../../styles/Products.module.css";
 import { Link } from "react-router-dom";
+import styles from "../../styles/Products.module.css";
 
 export const Products = ({ title, amount, style = {}, products = [] }) => {
   const list = products.filter((_, index) => index < amount);

@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "../../styles/Cart.module.css";
 import { sum } from "../../utils/common";
 import {
   addProductToCart,
   removeItemFromCart,
 } from "../../redux/api/user/userSlice";
+import styles from "../../styles/Cart.module.css";
 
 export const Cart = () => {
   const { cart } = useSelector(({ user }) => user);
