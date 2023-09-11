@@ -1,5 +1,4 @@
 import React from "react";
-import { ROUTES } from "../../utils/routes";
 import { Link } from "react-router-dom";
 import styles from "../../styles/Categories.module.css";
 
