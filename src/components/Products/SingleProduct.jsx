@@ -18,12 +18,12 @@ export const SingleProduct = () => {
     if (!isFetching && !isLoading && !isSuccess) {
       navigate(ROUTES.HOME);
     }
-  }, [isLoading, isFetching, isSuccess]);
+  }, [isLoading, isFetching, isSuccess, navigate]);
 
   useEffect(() => {
     if (!data || !list.length) return;
     dispatch(getRelatedProducts(data.category.id));
-  }, [data, !list.length]);
+  }, [data, list.length, dispatch]);
 
   return !data ? (
     <section className="preloader">Loading...</section>

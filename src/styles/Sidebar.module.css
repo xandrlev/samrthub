@@ -32,9 +32,3 @@
 .link.active {
   color: var(--violet);
 }
-
-.footer {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-}

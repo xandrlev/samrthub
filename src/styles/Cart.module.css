@@ -105,17 +105,12 @@
 }
 
 .close {
+  color: var(--dark-sea);
   cursor: pointer;
 }
 
-.close svg {
-  width: 16px;
-  height: 16px;
-  stroke: rgba(255, 255, 255, 0.5);
-}
-
-.close:hover svg {
-  stroke: rgba(255, 255, 255, 1);
+.close:hover {
+  color: rgb(255, 255, 255);
 }
 
 .actions {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../redux/api/user/userSlice";
+import { BsX } from "react-icons/bs";
 import styles from "../../styles/User.module.css";
 
 export const UserSignUpForm = ({ closeForm, toggleCurrentFormType }) => {
@@ -19,7 +20,7 @@ export const UserSignUpForm = ({ closeForm, toggleCurrentFormType }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const isEmpty = Object.values(values).some((item) => !item);
     if (isEmpty) return;
@@ -30,9 +31,7 @@ export const UserSignUpForm = ({ closeForm, toggleCurrentFormType }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.close} onClick={closeForm}>
-        <svg>
-          <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`} />
-        </svg>
+        <BsX />
       </div>
       <div className={styles.title}>Sign Up</div>
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -80,7 +79,12 @@ export const UserSignUpForm = ({ closeForm, toggleCurrentFormType }) => {
             onChange={handleChange}
           />
         </div>
-        <div className={styles.link} onClick={() => toggleCurrentFormType('login')}>I allredy have an account</div>
+        <div
+          className={styles.link}
+          onClick={() => toggleCurrentFormType("login")}
+        >
+          I already have an account
+        </div>
         <button className={styles.submit} type="submit">
           Create an account
         </button>

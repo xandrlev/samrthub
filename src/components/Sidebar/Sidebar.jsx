@@ -25,14 +25,6 @@ export const Sidebar = () => {
           ))}
         </ul>
       </nav>
-      <div className={styles.footer}>
-        <a href="/help" target="_blank" className={styles.link} rel="noreferrer">
-          Help
-        </a>
-        <a href="/terms" target="_blank" className={styles.link} rel="noreferrer">
-          Terms & Conditions
-        </a>
-      </div>
     </section>
   );
 };

@@ -35,13 +35,14 @@ export const Category = () => {
     setItems([]);
     setEnd(false);
     setParams({ ...initialParams, categoryId: id });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   useEffect(() => {
     if (!list.length || !id) return;
     const { name } = list.find((item) => item.id === +id);
     setCat(name);
-  }, [list.length, id]);
+  }, [list, id]);
 
   useEffect(() => {
     if (isLoading) return;

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../redux/api/user/userSlice";
 import { useGetProductsQuery } from "../../redux/api/apiSlice";
 import { ROUTES } from "../../utils/routes";
+import { BsCart, BsBookmark, BsSearch } from "react-icons/bs";
 import Avatar from "../../images/avatar.svg";
 import Logo from "../../images/logo.png";
 import styles from "../../styles/Header.module.css";
@@ -55,9 +56,7 @@ export const Header = () => {
         </div>
         <form className={styles.form}>
           <div className={styles.icon}>
-            <svg>
-              <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#search`} />
-            </svg>
+            <BsSearch />
           </div>
           <div className={styles.input}>
             <input
@@ -96,15 +95,13 @@ export const Header = () => {
         </form>
         <div className={styles.account}>
           <Link to={ROUTES.HOME} className={styles.favourites}>
-            <svg className={styles["icon-fav"]}>
-              <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#heart`} />
-            </svg>
+            <BsBookmark className={styles["icon-cart"]} />
           </Link>
           <Link to={ROUTES.CART} className={styles.cart}>
-            <svg className={styles["icon-cart"]}>
-              <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`} />
-            </svg>
-            {!!cart.length && <span className={styles.count}>{cart.length}</span>}
+            <BsCart className={styles["icon-cart"]} />
+            {!!cart.length && (
+              <span className={styles.count}>{cart.length}</span>
+            )}
           </Link>
         </div>
       </div>

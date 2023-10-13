@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../utils/routes";
 import Logo from "../../images/logo.png";
+import {
+  BiLogoYoutube,
+  BiLogoInstagramAlt,
+  BiLogoFacebookCircle,
+} from "react-icons/bi";
 import styles from "../../styles/Footer.module.css";
 
 export const Footer = () => {
@@ -24,19 +29,13 @@ export const Footer = () => {
       </div>
       <div className={styles.socials}>
         <a href="https://instagram.com" target="_blank" rel="noreferrer">
-          <svg>
-            <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#instagram`} />
-          </svg>
+          <BiLogoInstagramAlt />
         </a>
         <a href="https://youtube.com" target="_blank" rel="noreferrer">
-          <svg>
-            <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#youtube `} />
-          </svg>
+          <BiLogoYoutube />
         </a>
         <a href="https://facebook.com" target="_blank" rel="noreferrer">
-          <svg>
-            <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#facebook `} />
-          </svg>
+          <BiLogoFacebookCircle />
         </a>
       </div>
     </section>

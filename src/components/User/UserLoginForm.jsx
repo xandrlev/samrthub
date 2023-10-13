@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logInUser } from "../../redux/api/user/userSlice";
+import { BsX } from "react-icons/bs";
 import styles from "../../styles/User.module.css";
 
 export const UserLoginForm = ({ closeForm, toggleCurrentFormType }) => {
@@ -17,7 +18,7 @@ export const UserLoginForm = ({ closeForm, toggleCurrentFormType }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const isEmpty = Object.values(values).some((item) => !item);
     if (isEmpty) return;
@@ -28,9 +29,7 @@ export const UserLoginForm = ({ closeForm, toggleCurrentFormType }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.close} onClick={closeForm}>
-        <svg>
-          <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`} />
-        </svg>
+        <BsX />
       </div>
       <div className={styles.title}>Log In</div>
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -56,7 +55,12 @@ export const UserLoginForm = ({ closeForm, toggleCurrentFormType }) => {
             onChange={handleChange}
           />
         </div>
-        <div className={styles.link} onClick={() => toggleCurrentFormType('signup')}>Create an account</div>
+        <div
+          className={styles.link}
+          onClick={() => toggleCurrentFormType("signup")}
+        >
+          Create an account
+        </div>
         <button className={styles.submit} type="submit">
           Login
         </button>

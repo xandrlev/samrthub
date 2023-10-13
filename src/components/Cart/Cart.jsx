@@ -5,6 +5,7 @@ import {
   addProductToCart,
   removeItemFromCart,
 } from "../../redux/api/user/userSlice";
+import { FaMinus, FaPlus, FaTimes } from "react-icons/fa";
 import styles from "../../styles/Cart.module.css";
 
 export const Cart = () => {
@@ -47,31 +48,19 @@ export const Cart = () => {
                         changeQuantity(item, Math.max(1, quantity - 1))
                       }
                     >
-                      <svg className={styles.icon}>
-                        <use
-                          xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#minus`}
-                        />
-                      </svg>
+                      <FaMinus className={styles.icon} />
                     </div>
                     <span>{quantity}</span>
                     <div
                       className={styles.plus}
                       onClick={() => changeQuantity(item, quantity + 1)}
                     >
-                      <svg className={styles.icon}>
-                        <use
-                          xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#plus`}
-                        />
-                      </svg>
+                      <FaPlus className={styles.icon} />
                     </div>
                   </div>
                   <div className={styles.total}>{price * quantity}$</div>
                   <div className={styles.close} onClick={() => removeItem(id)}>
-                    <svg className={styles.icon}>
-                      <use
-                        xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`}
-                      />
-                    </svg>
+                    <FaTimes className={styles.icon} />
                   </div>
                 </div>
               );
@@ -84,7 +73,7 @@ export const Cart = () => {
                 {sum(cart.map(({ quantity, price }) => quantity * price))}$
               </span>
             </div>
-            <button className={styles.proceed}>Proceed to checkout</button>
+            <button className={styles.proceed}>Order now</button>
           </div>
         </>
       )}
